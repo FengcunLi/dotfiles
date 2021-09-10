@@ -51,7 +51,12 @@ set nu " number lines
 set rnu " relative line numbering
 set incsearch " incremental search (as string is being typed)
 set hls " highlight search
-set listchars=eol:$,tab:>-,trail:~,nbsp:<,space:⋅ " set list to see tabs and non-breakable spaces
+if has("patch-7.4.710")
+    set listchars=eol:$,tab:>-,trail:~,nbsp:<,space:⋅ " set list to see tabs and non-breakable spaces
+else
+    set listchars=eol:$,tab:>-,trail:~,nbsp:< " set list to see tabs and non-breakable spaces
+endif
+
 set list
 set lbr " line break
 set scrolloff=5 " show lines above and below cursor (when possible)
