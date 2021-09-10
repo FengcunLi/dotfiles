@@ -1,0 +1,43 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "vim/vim/bundle/ack.vim"]
+	path = vim/vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/vim/bundle/fzf.vim"]
+	path = vim/vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/vim/bundle/incsearch.vim"]
+	path = vim/vim/bundle/incsearch.vim
+	url = https://github.com/haya14busa/incsearch.vim
+[submodule "vim/vim/bundle/syntastic"]
+	path = vim/vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "vim/vim/bundle/tagbar"]
+	path = vim/vim/bundle/tagbar
+	url = https://github.com/preservim/tagbar.git
+[submodule "vim/vim/bundle/tlib_vim"]
+	path = vim/vim/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim/vim/bundle/vim-addon-mw-utils"]
+	path = vim/vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/vim/bundle/vim-airline"]
+	path = vim/vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim/vim/bundle/vim-argwrap"]
+	path = vim/vim/bundle/vim-argwrap
+	url = https://github.com/FooSoft/vim-argwrap
+[submodule "vim/vim/bundle/vim-colors-solarized"]
+	path = vim/vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/vim/bundle/vim-snipmate"]
+	path = vim/vim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "vim/vim/bundle/vim-snippets"]
+	path = vim/vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "vim/vim/bundle/nerdtree"]
+	path = vim/vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git

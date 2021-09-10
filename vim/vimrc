@@ -1,0 +1,328 @@
+set encoding=utf-8
+set nocompatible " not vi compatible
+
+execute pathogen#infect()
+
+"------------------
+" Syntax and indent
+"------------------
+syntax on " turn on syntax highlighting
+set showmatch " show matching braces when text indicator is over them
+
+" highlight current line, but only in active window
+augroup CursorLineOnlyInActiveWindow
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
+augroup END
+
+" vim can autodetect this based on $TERM (e.g. 'xterm-256color')
+" but it can be set to force 256 colors
+" set t_Co=256
+if has('gui_running')
+    colorscheme solarized
+    let g:lightline = {'colorscheme': 'solarized'}
+elseif &t_Co < 256
+    colorscheme default
+    set nocursorline " looks bad in this mode
+else
+    set background=dark
+    let g:solarized_termcolors=256 " instead of 16 color with mapping in terminal
+    " colorscheme solarized
+    colorscheme molokai
+    " customized colors
+    highlight SignColumn ctermbg=234
+    highlight StatusLine cterm=bold ctermfg=245 ctermbg=235
+    highlight StatusLineNC cterm=bold ctermfg=245 ctermbg=235
+    let g:lightline = {'colorscheme': 'dark'}
+    highlight SpellBad cterm=underline
+    " patches
+    highlight CursorLineNr cterm=NONE
+endif
+
+filetype plugin indent on " enable file type detection
+set autoindent
+
+"---------------------
+" Basic editing config
+"---------------------
+set shortmess+=I " disable startup message
+set nu " number lines
+set rnu " relative line numbering
+set incsearch " incremental search (as string is being typed)
+set hls " highlight search
+set listchars=eol:$,tab:>-,trail:~,nbsp:<,space:⋅ " set list to see tabs and non-breakable spaces
+set list
+set lbr " line break
+set scrolloff=5 " show lines above and below cursor (when possible)
+set noshowmode " hide mode
+set laststatus=2
+set backspace=indent,eol,start " allow backspacing over everything
+set timeout timeoutlen=1000 ttimeoutlen=100 " fix slow O inserts
+set lazyredraw " skip redrawing screen in some cases
+" set autochdir " automatically set current directory to directory of last opened file
+set hidden " allow auto-hiding of edited buffers
+set history=8192 " more history
+set nojoinspaces " suppress inserting two spaces between sentences
+" use 4 spaces instead of tabs during formatting
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+" smart case-sensitive search
+set ignorecase
+set smartcase
+" tab completion for files/buffers
+" set wildmode=longest,list
+set wildmenu
+set mouse+=a " enable mouse mode (scrolling, selection, etc)
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+set nofoldenable " disable folding by default
+
+"--------------------
+" Misc configurations
+"--------------------
+
+" unbind keys
+map <C-a> <Nop>
+map <C-x> <Nop>
+nmap Q <Nop>
+
+" disable audible bell
+set noerrorbells visualbell t_vb=
+
+" open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" movement relative to display lines
+nnoremap <silent> <leader>d :call ToggleMovementByDisplayLines()<CR>
+function SetMovementByDisplayLines()
+    noremap <buffer> <silent> <expr> k v:count ? 'k' : 'gk'
+    noremap <buffer> <silent> <expr> j v:count ? 'j' : 'gj'
+    noremap <buffer> <silent> 0 g0
+    noremap <buffer> <silent> $ g$
+endfunction
+function ToggleMovementByDisplayLines()
+    if !exists('b:movement_by_display_lines')
+        let b:movement_by_display_lines = 0
+    endif
+    if b:movement_by_display_lines
+        let b:movement_by_display_lines = 0
+        silent! nunmap <buffer> k
+        silent! nunmap <buffer> j
+        silent! nunmap <buffer> 0
+        silent! nunmap <buffer> $
+    else
+        let b:movement_by_display_lines = 1
+        call SetMovementByDisplayLines()
+    endif
+endfunction
+
+" toggle relative numbering
+nnoremap <C-n> :set rnu!<CR>
+
+" save read-only files
+command -nargs=0 Sudow w !sudo tee % >/dev/null
+
+"---------------------
+" Plugin configuration
+"---------------------
+
+
+" buffergator
+" let g:buffergator_suppress_keymaps = 1
+" nnoremap <leader>b :BuffergatorToggle<CR> " 与 FZF 冲突了
+
+
+" ctrlp
+" nnoremap ; :CtrlPBuffer<CR>
+" let g:ctrlp_switch_buffer = 0
+" let g:ctrlp_show_hidden = 1
+
+" snipMate
+let g:snipMate = { 'snippet_version' : 1 }
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#buffer_nr_show = 0
+" let g:airline#extensions#tabline#fnametruncate = 16
+" let g:airline#extensions#tabline#fnamecollapse = 2
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_section_y = ''
+let g:airline_powerline_fonts = 0
+" the separator used on the left side
+" let g:airline_left_sep=''
+" the separator used on the right side
+" let g:airline_right_sep=''
+set ambiwidth=double
+
+" ag / ack.vim
+set shellpipe=> " Search results leak into terminal
+command -nargs=+ Gag Ack <args>
+nnoremap K :Gag "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap FF :Ack<space>
+if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+    let g:ackprg = 'ag --vimgrep'
+endif
+
+" syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': []
+\}
+let g:syntastic_cpp_compiler_options = '-std=c++11'
+
+" easymotion
+" map <Space> <Plug>(easymotion-prefix)
+
+" incsearch
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" incsearch-easymotion
+" map z/ <Plug>(incsearch-easymotion-/)
+" map z? <Plug>(incsearch-easymotion-?)
+" map zg/ <Plug>(incsearch-easymotion-stay)
+
+" markdown
+let g:markdown_fenced_languages = [
+    \ 'bash=sh',
+    \ 'c',
+    \ 'coffee',
+    \ 'erb=eruby',
+    \ 'javascript',
+    \ 'json',
+    \ 'perl',
+    \ 'python',
+    \ 'ruby',
+    \ 'yaml',
+    \ 'go',
+    \ 'racket',
+    \ 'haskell',
+    \ 'rust',
+\]
+let g:markdown_syntax_conceal = 0
+let g:markdown_folding = 1
+
+" fugitive
+" set tags^=.git/tags;~
+
+
+" NERDTree
+" Start NERDTree when Vim starts with a directory argument.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') && v:this_session == '' |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+"---------------------
+" Local customizations
+"---------------------
+
+" local customizations in ~/.vimrc_local
+let $LOCALFILE=expand("~/.vimrc_local")
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" possibly "*y depending on OS
+vmap <C-C> "+y
+
+" FZF
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+
+" Prevent FZF commands from opening in none modifiable buffers
+function! FZFOpen(cmd)
+    " If more than 1 window, and buffer is not modifiable or file type is
+    " NERD tree or Quickfix type
+    if winnr('$') > 1 && (!&modifiable || &ft == 'nerdtree' || &ft == 'qf')
+        " Move one window to the right, then up
+        wincmd l
+        wincmd k
+    endif
+    exe a:cmd
+endfunction
+
+
+" nnoremap <silent> <C-g>g :call FZFOpen(':Ag')<CR>
+" nnoremap <silent> <C-g>c :call FZFOpen(':Commands')<CR>
+" leader 相关的
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>0 <Plug>AirlineSelectTab0
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
+" Will first go to the previous buffer, then delete the last buffer
+nnoremap <leader>c :bp\|bd #<CR>
+nnoremap <leader>s :SyntasticCheck<CR>
+nnoremap <leader>r :SyntasticReset<CR>
+nnoremap <leader>i :SyntasticInfo<CR>
+nnoremap <leader>m :SyntasticToggleMode<CR>
+" argwrap
+nnoremap <leader>w :ArgWrap<CR>
+
+noremap <leader>x :OverCommandLine<CR>
+" tagbar
+nnoremap <leader>t :TagbarToggle<CR>
+" nerdtree
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+" FZF
+nnoremap <silent> <leader>b :call FZFOpen(":Buffers")<CR>
+nnoremap <silent> <leader><leader> :call FZFOpen(":Files")<CR>
+nnoremap <silent> <leader>~ :call FZFOpen(":Files ~")<CR>
+" FZF Search for previous opened Files
+nnoremap <silent> <leader>zh :call FZFOpen(":History")<CR>
+nnoremap <silent> <leader>l :call FZFOpen(':BLines')<CR>
+" gundo
+nnoremap <leader>u :GundoToggle<CR>
+if has('python3')
+    let g:gundo_prefer_python3 = 1
+endif
+
+autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
+autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
+autocmd InsertEnter * silent exec "! echo -ne '\e[5 q'"
+autocmd InsertLeave * silent exec "! echo -ne '\e[1 q'"
+
