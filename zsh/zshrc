@@ -1,26 +1,3 @@
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-16.jdk/Contents/Home
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.10.jdk/Contents/Home
-export JAVA_HOME=/Users/lifengcun/Library/Java/JavaVirtualMachines/corretto-1.8.0_282/Contents/Home
-
-export PATH=/Users/lifengcun/Java/apache-maven-3.8.1/bin:$PATH
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH=/usr/local/Cellar/apache-spark/3.1.1/bin:$PATH:/Library/Tex/texbin
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH=$(go env GOPATH)/bin:$PATH
-export PATH="/usr/local/opt/node@12/bin:$PATH"
-export PATH="/usr/local/opt/bison/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=/usr/local/Cellar/ctags/5.8_2/bin/:$PATH
-
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
-
-export CATALINA_HOME=/Users/lifengcun/Java/apache-tomcat-6.0.9
-export CPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Perl/5.28/darwin-thread-multi-2level/CORE:$CPATH
-
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/bison/lib -L/usr/local/opt/qt@5/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-
 source ~/.bash_profile
 
 conda deactivate && conda activate base
@@ -153,7 +130,6 @@ export LESS_TERMCAP_ue=$default
 # Begin underline
 export LESS_TERMCAP_us=$green
 
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 function zle-line-init {
     VIM_NORMAL_PROMPT="%{$fg_bold[yellow]%} [% -- NORMAL --]%  %{$reset_color%}"
@@ -222,3 +198,6 @@ bindkey -s '^o' 'lfcd\n'
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi
