@@ -1,6 +1,8 @@
 set encoding=utf-8
 set nocompatible " not vi compatible
 
+let mapleader = "\\"
+
 execute pathogen#infect()
 
 "------------------
