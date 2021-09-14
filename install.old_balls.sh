@@ -8,6 +8,8 @@ ln -s ${BASEDIR}/vim/vim/ ~/.vim
 
 # zsh
 ln -s ${BASEDIR}/zsh/zshrc ~/.zshrc
+#bash
+ln -s ${BASEDIR}/bash/inputrc ~/.inputrc
 
 # git
 # ln -s ${BASEDIR}/gitconfig ~/.gitconfig
