@@ -16,4 +16,4 @@ ln -s ${BASEDIR}/bash/inputrc ~/.inputrc
 
 # tmux
 
-# ln -s ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
+ln -s ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
