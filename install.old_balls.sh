@@ -10,6 +10,8 @@ ln -s ${BASEDIR}/vim/vim/ ~/.vim
 ln -s ${BASEDIR}/zsh/zshrc ~/.zshrc
 #bash
 ln -s ${BASEDIR}/bash/inputrc ~/.inputrc
+mv ~/.bashrc ~/.bashrc_local_backup
+ln -s ${BASEDIR}/bash/bashrc ~/.bashrc
 
 # git
 # ln -s ${BASEDIR}/gitconfig ~/.gitconfig

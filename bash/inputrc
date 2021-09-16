@@ -3,4 +3,3 @@ set show-mode-in-prompt on
 set vi-cmd-mode-string "\1\e[2 q\2cmd"
 set vi-ins-mode-string "\1\e[6 q\2ins"
 
-[ -f ~/.fzf/fzf.bash ] && source ~/.fzf/fzf.bash

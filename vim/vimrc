@@ -271,6 +271,7 @@ vmap <C-C> "+y
 " FZF
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf/fzf
 
 " Prevent FZF commands from opening in none modifiable buffers
 function! FZFOpen(cmd)
