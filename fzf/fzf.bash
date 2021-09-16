@@ -1,6 +1,7 @@
 # Setup fzf
 # ---------
-export PATH="$PATH:~/.fzf/linux-bin"
+export PATH="$PATH:$HOME/.fzf/linux-bin"
+# export PATH="$PATH:~/.fzf/linux-bin"
 
 # Auto-completion
 # ---------------
