@@ -2,28 +2,35 @@
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+unlinkLink() {
+    if [[ -L $2 ]]; then
+        unlink $2
+        echo "Unlinked $2"
+    fi
+    ln -s $1 $2
+    echo "Linked $2 to $1"
+}
 # vim
-ln -s ${BASEDIR}/vim/vimrc ~/.vimrc
-ln -s ${BASEDIR}/vim/vim/ ~/.vim
+unlinkLink -s ${BASEDIR}/vim/vimrc ~/.vimrc
+unlinkLink -s ${BASEDIR}/vim/vim/ ~/.vim
 
 # zsh
-ln -s ${BASEDIR}/zsh/zshrc ~/.zshrc
+unlinkLink -s ${BASEDIR}/zsh/zshrc ~/.zshrc
 
 #bash
-ln -s ${BASEDIR}/bash/inputrc ~/.inputrc
+unlinkLink -s ${BASEDIR}/bash/inputrc ~/.inputrc
 if [[ -L ~/.bashrc ]]; then
   unlink ~/.bashrc
 fi
 [ -f ~/.bashrc ] && mv ~/.bashrc ~/.bashrc_local_backup
-ln -s ${BASEDIR}/bash/bashrc ~/.bashrc
+unlinkLink -s ${BASEDIR}/bash/bashrc ~/.bashrc
 
 # git
-# ln -s ${BASEDIR}/gitconfig ~/.gitconfig
+# unlinkLink -s ${BASEDIR}/gitconfig ~/.gitconfig
 
 # tmux
 
-ln -s ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
+unlinkLink -s ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
 
 # FZF
-ln -s ${BASEDIR}/fzf/ ~/.fzf
-
+unlinkLink -s ${BASEDIR}/fzf/ ~/.fzf
