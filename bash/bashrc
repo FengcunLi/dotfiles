@@ -1,3 +1,3 @@
-source ~/.bashrc_local_backup
+[ -f ~/.bashrc_local_backup ] && source ~/.bashrc_local_backup
 [ -f ~/.fzf/fzf.bash ] && source ~/.fzf/fzf.bash
 
