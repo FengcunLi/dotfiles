@@ -17,3 +17,7 @@ ln -s ${BASEDIR}/bash/inputrc ~/.inputrc
 # tmux
 
 ln -s ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
+
+# FZF
+ln -s ${BASEDIR}/fzf/ ~/.fzf
+
