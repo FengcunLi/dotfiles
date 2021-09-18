@@ -173,8 +173,10 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # zmodload zsh/complist
 # compinit
 
-export KEYTIMEOUT=1
+export KEYTIMEOUT=30
 
+bindkey -M viins 'JH' vi-cmd-mode
+ 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
