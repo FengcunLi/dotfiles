@@ -1,3 +1,9 @@
 [ -f ~/.bashrc_local_backup ] && source ~/.bashrc_local_backup
 [ -f ~/.fzf/fzf.bash ] && source ~/.fzf/fzf.bash
 
+# TL;DR
+# Bash has a similar functionality to zsh's bindkey through bind, but it does not have several vi modes like zsh. After set -o vi you can do:
+bind '"JH":vi-movement-mode'
+# which is the equivalent of zsh's bindkey -M <all vi modes> JH vi-movement-mode
+# The vi-movement-mode functions comes from inputrc (see /etc/inputrc for a list of them).
+
