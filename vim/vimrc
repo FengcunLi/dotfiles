@@ -35,7 +35,7 @@ else
     " customized colors
     highlight SignColumn ctermbg=234
     highlight StatusLine cterm=bold ctermfg=245 ctermbg=235
-    highlight StatusLineNC cterm=bold ctermfg=245 ctermbg=235
+    highlight StatusLineNC cterm=bold ctermfg=246 ctermbg=235
     let g:lightline = {'colorscheme': 'dark'}
     highlight SpellBad cterm=underline
     " patches
@@ -347,4 +347,27 @@ noremap <Right> <NOP>
 imap JH <Esc>
 " quit command-line without executing
 cmap JH <c-c>
+noremap JH <Esc>
+
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap h] <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap h[ <Plug>(GitGutterPrevHunk)
+" When you make a change to a file tracked by git, the diff markers should appear automatically. The delay is governed by vim's updatetime option; the default value is 4000, i.e. 4 seconds, but I suggest reducing it to around 100ms (add set updatetime=100 to your vimrc). Note updatetime also controls the delay before vim writes its swap file (see :help updatetime).
+set updatetime=100
+set shortmess-=S
+
+set spell spelllang=en_us " zg zw z= [s ]s
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+
+" repmo.vim
+" repeat the last [count]motion or the last zap-key:
+:map <expr> ; repmo#LastKey(';')|sunmap ;
+:map <expr> , repmo#LastRevKey(',')|sunmap ,
+
+" add these mappings when repeating with `;' or `,':
+:noremap <expr> f repmo#ZapKey('f')|sunmap f
+:noremap <expr> F repmo#ZapKey('F')|sunmap F
+:noremap <expr> t repmo#ZapKey('t')|sunmap t
+:noremap <expr> T repmo#ZapKey('T')|sunmap T
 

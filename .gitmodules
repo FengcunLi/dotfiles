@@ -65,3 +65,12 @@
 [submodule "vim/vim/bundle/vim-surround"]
 	path = vim/vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
+[submodule "vim/vim/bundle/nerdtree-git-plugin"]
+	path = vim/vim/bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "vim/vim/bundle/vim-gitgutter"]
+	path = vim/vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/vim/bundle/repmo-vim"]
+	path = vim/vim/bundle/repmo-vim
+	url = https://github.com/Houl/repmo-vim.git
