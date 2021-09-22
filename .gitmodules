@@ -74,3 +74,6 @@
 [submodule "vim/vim/bundle/repmo-vim"]
 	path = vim/vim/bundle/repmo-vim
 	url = https://github.com/Houl/repmo-vim.git
+[submodule "vim/vim/bundle/vim-abolish"]
+	path = vim/vim/bundle/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
