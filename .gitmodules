@@ -77,3 +77,6 @@
 [submodule "vim/vim/bundle/vim-abolish"]
 	path = vim/vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim/vim/bundle/spelunker.vim"]
+	path = vim/vim/bundle/spelunker.vim
+	url = https://github.com/kamykn/spelunker.vim.git
