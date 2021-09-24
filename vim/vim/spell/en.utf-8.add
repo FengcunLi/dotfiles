@@ -2,3 +2,7 @@ CMAKE
 CMakeLists
 txt
 CMake
+cmake
+iostream
+cout
+endl

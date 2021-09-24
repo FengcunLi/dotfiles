@@ -38,8 +38,9 @@ else
     highlight StatusLineNC cterm=bold ctermfg=246 ctermbg=235
     let g:lightline = {'colorscheme': 'dark'}
     highlight SpellBad cterm=underline
-    " patches
-    highlight CursorLineNr cterm=NONE
+
+    highlight CursorLineNR cterm=bold ctermfg=White ctermbg=21
+    highlight CursorLine ctermbg=236
 endif
 
 filetype plugin indent on " enable file type detection
@@ -350,9 +351,9 @@ cmap JH <c-c>
 noremap JH <Esc>
 
 nmap ]h <Plug>(GitGutterNextHunk)
-nmap h] <Plug>(GitGutterNextHunk)
+" nmap h] <Plug>(GitGutterNextHunk) " slow down h key
 nmap [h <Plug>(GitGutterPrevHunk)
-nmap h[ <Plug>(GitGutterPrevHunk)
+" nmap h[ <Plug>(GitGutterPrevHunk) " slow down h key
 " When you make a change to a file tracked by git, the diff markers should appear automatically. The delay is governed by vim's updatetime option; the default value is 4000, i.e. 4 seconds, but I suggest reducing it to around 100ms (add set updatetime=100 to your vimrc). Note updatetime also controls the delay before vim writes its swap file (see :help updatetime).
 set updatetime=100
 " Count search results
@@ -398,4 +399,15 @@ set spellfile=$HOME/.vim/spell/en.utf-8.add
 
 " If you don't want to lose your register when doing this, you can also put in your vimrc:
 xnoremap p pgvy
+
+" Format JSON
+" %!jq .
+
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
+" inoremap { {<Cr>}<Esc>O
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
+highlight Comment ctermfg=69
 
