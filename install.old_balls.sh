@@ -35,3 +35,6 @@ unlinkLink ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
 
 # FZF
 unlinkLink ${BASEDIR}/fzf/ ~/.fzf
+
+# Cmds
+unlinkLink ${BASEDIR}/cmds/ ~/.cmds

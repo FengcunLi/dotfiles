@@ -80,3 +80,9 @@
 [submodule "vim/vim/bundle/spelunker.vim"]
 	path = vim/vim/bundle/spelunker.vim
 	url = https://github.com/kamykn/spelunker.vim.git
+[submodule "vim/vim/bundle/vim-markdown"]
+	path = vim/vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim/vim/bundle/markdown-preview.nvim"]
+	path = vim/vim/bundle/markdown-preview.nvim
+	url = https://github.com/iamcco/markdown-preview.nvim.git

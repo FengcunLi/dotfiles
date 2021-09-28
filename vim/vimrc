@@ -213,24 +213,24 @@ map g/ <Plug>(incsearch-stay)
 " map zg/ <Plug>(incsearch-easymotion-stay)
 
 " markdown
-let g:markdown_fenced_languages = [
-    \ 'bash=sh',
-    \ 'c',
-    \ 'coffee',
-    \ 'erb=eruby',
-    \ 'javascript',
-    \ 'json',
-    \ 'perl',
-    \ 'python',
-    \ 'ruby',
-    \ 'yaml',
-    \ 'go',
-    \ 'racket',
-    \ 'haskell',
-    \ 'rust',
-\]
-let g:markdown_syntax_conceal = 0
-let g:markdown_folding = 1
+"let g:markdown_fenced_languages = [
+"    \ 'bash=sh',
+"    \ 'c',
+"    \ 'coffee',
+"    \ 'erb=eruby',
+"    \ 'javascript',
+"    \ 'json',
+"    \ 'perl',
+"    \ 'python',
+"    \ 'ruby',
+"    \ 'yaml',
+"    \ 'go',
+"    \ 'racket',
+"    \ 'haskell',
+"    \ 'rust',
+"\]
+"let g:markdown_syntax_conceal = 0
+"let g:markdown_folding = 1
 
 " fugitive
 " set tags^=.git/tags;~
@@ -410,4 +410,11 @@ inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap { {}<ESC>i
 highlight Comment ctermfg=69
+
+" If the cursor is not in a fold, move to the right (the default behavior). Otherwise, in normal mode, press Space to toggle the current fold open/closed.
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+" In addition, with the manual fold method, you can create a fold by visually selecting some lines, then pressing Space.
+vnoremap <Space> zf
+
+let g:mkdp_echo_preview_url = 0
 

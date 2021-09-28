@@ -16,6 +16,7 @@
     ~/.tldrrc: tldr/tldrrc
     ~/.yarnrc: yarn/yarnrc
     ~/.gdbinit: gdb/gdbinit
+    ~/.cmds: cmds
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
     # - [sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)", Installing Oh My Zsh]

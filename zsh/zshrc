@@ -203,3 +203,5 @@ bindkey '^e' edit-command-line
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
+
+export PATH=$PATH:$HOME/.cmds/
