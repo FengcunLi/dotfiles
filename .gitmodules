@@ -89,3 +89,6 @@
 [submodule "vim/vim/bundle/vim-xkbswitch"]
 	path = vim/vim/bundle/vim-xkbswitch
 	url = https://github.com/lyokha/vim-xkbswitch.git
+[submodule "vim/vim/bundle/vim-fugitive"]
+	path = vim/vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
