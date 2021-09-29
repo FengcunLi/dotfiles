@@ -86,3 +86,6 @@
 [submodule "vim/vim/bundle/markdown-preview.nvim"]
 	path = vim/vim/bundle/markdown-preview.nvim
 	url = https://github.com/iamcco/markdown-preview.nvim.git
+[submodule "vim/vim/bundle/vim-xkbswitch"]
+	path = vim/vim/bundle/vim-xkbswitch
+	url = https://github.com/lyokha/vim-xkbswitch.git

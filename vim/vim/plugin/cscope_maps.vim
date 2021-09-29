@@ -32,6 +32,7 @@ if has("cscope")
     " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
     set cscopetag
 
+    " The ctags tool only collects and stores the definitions of symbols.
     " check cscope for definition of a symbol before checking ctags: set to 1
     " if you want the reverse search order.
     set csto=0
@@ -53,7 +54,7 @@ if has("cscope")
     " The following maps all invoke one of the following cscope search types:
     "
     "   's'   symbol: find all references to the token under cursor
-    "   'g'   global: find global definition(s) of the token under cursor
+    "   'g'   global: find global definition(s) of the token under cursor XX
     "   'c'   calls:  find all calls to the function name under cursor
     "   'd'   called: find functions that function under cursor calls
     "   't'   text:   find all instances of the text under cursor

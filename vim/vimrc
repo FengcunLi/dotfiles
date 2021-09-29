@@ -418,3 +418,4 @@ vnoremap <Space> zf
 
 let g:mkdp_echo_preview_url = 0
 
+let g:XkbSwitchEnabled = 1

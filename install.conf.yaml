@@ -17,6 +17,8 @@
     ~/.yarnrc: yarn/yarnrc
     ~/.gdbinit: gdb/gdbinit
     ~/.cmds: cmds
+    /usr/local/bin/xkbswitch: xkbswitch/xkbswitch
+    /usr/local/lib/libxkbswitch.dylib: xkbswitch/libxkbswitch.dylib
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
     # - [sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)", Installing Oh My Zsh]
