@@ -3,6 +3,9 @@ set nocompatible " not vi compatible
 
 let mapleader = "\\"
 
+if v:version < 800
+    let g:pathogen_blacklist = ['markdown-preview.nvim', 'spelunker.vim']
+endif
 execute pathogen#infect()
 
 "------------------
