@@ -418,4 +418,14 @@ vnoremap <Space> zf
 
 let g:mkdp_echo_preview_url = 0
 
-let g:XkbSwitchEnabled = 1
+" let g:XkbSwitchEnabled = 1
+
+" surround.vim
+" ds (
+" cs "(
+" 可视模式 S(
+
+" Remove highlighting: nohl
+
+" No matching autocommands markdown-preview.nvim
+" run :call mkdp#util#install() in vim
