@@ -429,3 +429,7 @@ let g:mkdp_echo_preview_url = 0
 
 " No matching autocommands markdown-preview.nvim
 " run :call mkdp#util#install() in vim
+
+" By remapping <Plug>Markdown_EditUrlUnderCursor, vim-markdown's default ge mapping disappears, so my solution is to remap it to <F13> (a valid remap to a key that doesn't exist on most keyboards) like so:
+" A built in toggle in vim-markdown to enable or disable the ge mapping would be a nicer solution, but this works.
+map <F13> <Plug>Markdown_EditUrlUnderCursor
