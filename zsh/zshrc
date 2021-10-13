@@ -214,3 +214,5 @@ mkdircd ()
 # "$1" is the first argument of the mkcdir command. Quotes around it protects the argument if it has spaces or other special characters.
 # -- makes sure the passed name for the new directory is not interpreted as an option to mkdir or cd, giving the opportunity to create a directory that starts with - or --.
 # -p used on mkdir makes it create extra directories if they do not exist yet, and -P used makes cd resolve symbolic links.
+
+alias vimf='vim $(fzf)'
