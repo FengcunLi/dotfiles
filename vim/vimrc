@@ -456,3 +456,8 @@ nnoremap <silent> ]f :call
 
 " Forward * key
 " Backward # key
+
+noremap Zz <c-w>_ \| <c-w>\|
+noremap Zo <c-w>=
+
+" dhruvasagar/vim-zoom <C-W>m
