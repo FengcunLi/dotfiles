@@ -8,3 +8,4 @@ bind '"JH":vi-movement-mode'
 # The vi-movement-mode functions comes from inputrc (see /etc/inputrc for a list of them).
 
 alias vimf='vim $(fzf)'
+# export PATH=$PATH:$HOME/.cmds/
