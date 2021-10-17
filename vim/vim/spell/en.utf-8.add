@@ -9,3 +9,4 @@ endl
 cmake
 flink
 cols/!
+cuda

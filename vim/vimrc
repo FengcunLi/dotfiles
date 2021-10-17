@@ -184,7 +184,7 @@ set ambiwidth=double
 set shellpipe=> " Search results leak into terminal
 command -nargs=+ Gag Ack <args>
 nnoremap K :Gag "\b<C-R><C-W>\b"<CR>:cw<CR>
-nnoremap FF :Ack<space>
+" nnoremap FF :Ack<space>
 if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
     let g:ackprg = 'ag --vimgrep'
@@ -280,6 +280,7 @@ vmap <C-C> "+y
 " FZF
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
+" For Linux using bundled fzf
 set rtp+=~/.fzf/fzf
 
 " Prevent FZF commands from opening in none modifiable buffers
@@ -295,7 +296,6 @@ function! FZFOpen(cmd)
 endfunction
 
 
-" nnoremap <silent> <C-g>g :call FZFOpen(':Ag')<CR>
 " nnoremap <silent> <C-g>c :call FZFOpen(':Commands')<CR>
 " leader 相关的
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -323,12 +323,13 @@ noremap <leader>x :OverCommandLine<CR>
 " tagbar
 nnoremap <leader>t :TagbarToggle<CR>
 " FZF
-nnoremap <silent> <leader>b :call FZFOpen(":Buffers")<CR>
-nnoremap <silent> <leader><leader> :call FZFOpen(":Files")<CR>
 nnoremap <silent> <leader>~ :call FZFOpen(":Files ~")<CR>
+nnoremap <silent> <leader><leader> :call FZFOpen(":Files")<CR>
+nnoremap <silent> <leader>b :call FZFOpen(":Buffers")<CR>
+nnoremap <silent> <leader>l :call FZFOpen(':BLines')<CR>
+nnoremap <silent> <leader>g :call FZFOpen(':Ag')<CR>
 " FZF Search for previous opened Files
 nnoremap <silent> <leader>zh :call FZFOpen(":History")<CR>
-nnoremap <silent> <leader>l :call FZFOpen(':BLines')<CR>
 " gundo
 nnoremap <leader>u :GundoToggle<CR>
 if has('python3')
@@ -414,9 +415,10 @@ inoremap ' ''<ESC>i
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap { {}<ESC>i
+
 highlight Comment ctermfg=69
 
-" If the cursor is not in a fold, move to the right (the default behavior). Otherwise, in normal mode, press Space to toggle the current fold open/closed.
+" In normal mode, if the cursor is not in a fold, move to the right (the default behavior). Otherwise, press Space to toggle the current fold open/closed.
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 " In addition, with the manual fold method, you can create a fold by visually selecting some lines, then pressing Space.
 vnoremap <Space> zf
