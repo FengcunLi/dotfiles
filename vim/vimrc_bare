@@ -1,0 +1,19 @@
+colorscheme ron
+set cursorline
+highlight CursorLineNR cterm=bold ctermfg=White ctermbg=21
+highlight CursorLine cterm=bold ctermbg=236
+
+filetype plugin indent on " enable file type detection
+set autoindent
+
+imap JH <Esc>
+" quit command-line without executing
+cmap JH <c-c>
+noremap JH <Esc>
+
+set rnu " relative line numbering
+
+autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
+autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
+autocmd InsertEnter * silent exec "! echo -ne '\e[5 q'"
+autocmd InsertLeave * silent exec "! echo -ne '\e[1 q'"

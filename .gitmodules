@@ -95,3 +95,6 @@
 [submodule "vim/vim/bundle/vim-zoom"]
 	path = vim/vim/bundle/vim-zoom
 	url = https://github.com/dhruvasagar/vim-zoom.git
+[submodule "vim/vim/bundle/vim-signature"]
+	path = vim/vim/bundle/vim-signature
+	url = https://github.com/kshenoy/vim-signature
