@@ -17,3 +17,10 @@ autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
 autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
 autocmd InsertEnter * silent exec "! echo -ne '\e[5 q'"
 autocmd InsertLeave * silent exec "! echo -ne '\e[1 q'"
+
+
+" In normal mode, if the cursor is not in a fold, move to the right (the default behavior). Otherwise, press Space to toggle the current fold open/closed.
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+" In addition, with the manual fold method, you can create a fold by visually selecting some lines, then pressing Space.
+vnoremap <Space> zf
+
