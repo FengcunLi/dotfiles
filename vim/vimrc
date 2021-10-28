@@ -8,6 +8,9 @@ if v:version < 800
 endif
 execute pathogen#infect()
 
+" Vim starts with garbage characters in command window
+autocmd VimEnter * redraw!
+
 "------------------
 " Syntax and indent
 "------------------

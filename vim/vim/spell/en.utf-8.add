@@ -10,3 +10,10 @@ cmake
 flink
 cols/!
 cuda
+memset
+zeroize
+cumlx
+convertor
+meituan
+memcpy
+ostringstream
