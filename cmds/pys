@@ -1,0 +1,4 @@
+IP=`hostname -i`
+echo $IP:8413
+python -m SimpleHTTPServer 8413
+
