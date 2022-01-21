@@ -11,7 +11,7 @@ imap JH <Esc>
 cmap JH <c-c>
 noremap JH <Esc>
 
-set rnu " relative line numbering
+set nu rnu " relative line numbering
 
 autocmd VimEnter * silent exec "! echo -ne '\e[1 q'"
 autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
