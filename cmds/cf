@@ -1,2 +1,2 @@
-find . -name "*.h" -o -name "*.hpp" -o -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.cuh" -o -name "*.cu"> cscope.files
+find . -name "*.h" -o -name "*.hpp" -o -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.cuh" -o -name "*.cu" -o -name "*.py" > cscope.files
 cscope -bkq -i cscope.files

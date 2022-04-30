@@ -237,6 +237,13 @@ map g/ <Plug>(incsearch-stay)
 "\]
 "let g:markdown_syntax_conceal = 0
 "let g:markdown_folding = 1
+"
+" set to 1, the nvim will auto close current preview window when change
+" from markdown buffer to another buffer
+" default: 1
+let g:mkdp_auto_close = 0
+nmap <leader>p <Plug>MarkdownPreviewToggle
+
 
 " fugitive
 " set tags^=.git/tags;~
@@ -260,6 +267,10 @@ if v:version >= 800
     " nerdtree
     nnoremap <leader>n :NERDTreeToggle<CR>
     nnoremap <leader>f :NERDTreeFind<CR>
+    " enable line numbers
+    let NERDTreeShowLineNumbers=1
+    " make sure relative line numbers are used
+    autocmd FileType nerdtree setlocal relativenumber
 endif
 "---------------------
 " Local customizations
@@ -311,7 +322,7 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>0 <Plug>AirlineSelectTab0
-nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>_ <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 " Will first go to the previous buffer, then delete the last buffer
 nnoremap <leader>c :bp\|bd #<CR>
@@ -333,7 +344,7 @@ nnoremap <silent> <leader><leader> :call FZFOpen(":Files")<CR>
 nnoremap <silent> <leader>b :call FZFOpen(":Buffers")<CR>
 nnoremap <silent> <leader>l :call FZFOpen(':BLines')<CR>
 nnoremap <silent> <leader>g :call FZFOpen(':Ag')<CR>
-nnoremap <silent> <leader>K :Ag <C-R><C-W><CR>
+" nnoremap <silent> <leader>K :Ag <C-R><C-W><CR>
 " FZF Search for previous opened Files
 nnoremap <silent> <leader>zh :call FZFOpen(":History")<CR>
 " gundo
@@ -415,12 +426,12 @@ xnoremap p pgvy
 " Format JSON
 " %!jq .
 
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
+" inoremap \" \""<ESC>i
+" inoremap ' ''<ESC>i
 " inoremap { {<Cr>}<Esc>O
-inoremap ( ()<ESC>i
-inoremap [ []<ESC>i
-inoremap { {}<ESC>i
+" inoremap ( ()<ESC>i
+" inoremap [ []<ESC>i
+" inoremap { {}<ESC>i
 
 highlight Comment ctermfg=69
 
@@ -501,3 +512,5 @@ noremap Zo <c-w>=
 " The command :SignatureToggle can be used to show/hide the signs. Note that this does not delete any of the marks but only hides them. This is a buffer-specific command.
 
 " If for some reason, the marks and their sign displays go out of sync, use :SignatureRefresh to refresh them.
+
+hi Visual term=reverse cterm=reverse guibg=Grey

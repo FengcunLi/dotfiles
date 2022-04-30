@@ -98,3 +98,6 @@
 [submodule "vim/vim/bundle/vim-signature"]
 	path = vim/vim/bundle/vim-signature
 	url = https://github.com/kshenoy/vim-signature
+[submodule "vim/vim/bundle/repeat"]
+	path = vim/vim/bundle/repeat
+	url = https://tpope.io/vim/repeat.git
