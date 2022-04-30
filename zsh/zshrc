@@ -226,3 +226,12 @@ cd_with_fzf() {
 
 bindkey -s '^f' 'open_with_fzf\n'
 bindkey -s '^o' 'cd_with_fzf\n'
+
+# You can use fd, ripgrep, or the silver searcher instead of the default find command to traverse the file system while respecting .gitignore.
+# Setting fd as the default source for fzf
+# export FZF_DEFAULT_COMMAND='fd --type f'
+# If you want the command to follow symbolic links and don't want it to exclude hidden files, use the following command:
+# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git -E "cscope.*"'
+
+alias ag='ag --ignore "cscope.*" --ignore tags'

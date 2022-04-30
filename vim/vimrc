@@ -289,7 +289,7 @@ if has("autocmd")
 endif
 
 " possibly "*y depending on OS
-vmap <C-C> "+y
+" vmap <C-C> "+y
 
 " FZF
 " If installed using Homebrew
@@ -338,7 +338,7 @@ noremap <leader>x :OverCommandLine<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 " FZF
 " exclude filenames from search
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore "cscope.*" --ignore tags', {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <silent> <leader>~ :call FZFOpen(":Files ~")<CR>
 nnoremap <silent> <leader><leader> :call FZFOpen(":Files")<CR>
 nnoremap <silent> <leader>b :call FZFOpen(":Buffers")<CR>

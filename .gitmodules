@@ -101,3 +101,15 @@
 [submodule "vim/vim/bundle/repeat"]
 	path = vim/vim/bundle/repeat
 	url = https://tpope.io/vim/repeat.git
+[submodule "vim/vim/bundle/unimpaired"]
+	path = vim/vim/bundle/unimpaired
+	url = https://tpope.io/vim/unimpaired.git
+[submodule "vim/vim/bundle/commentary"]
+	path = vim/vim/bundle/commentary
+	url = https://tpope.io/vim/commentary.git
+[submodule "vim/vim/bundle/vim-system-copy"]
+	path = vim/vim/bundle/vim-system-copy
+	url = https://github.com/christoomey/vim-system-copy.git
+[submodule "vim/vim/bundle/ReplaceWithRegister"]
+	path = vim/vim/bundle/ReplaceWithRegister
+	url = https://github.com/vim-scripts/ReplaceWithRegister.git
