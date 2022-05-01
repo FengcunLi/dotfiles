@@ -113,3 +113,6 @@
 [submodule "vim/vim/bundle/ReplaceWithRegister"]
 	path = vim/vim/bundle/ReplaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister.git
+[submodule "zsh/git-fuzzy"]
+	path = zsh/git-fuzzy
+	url = https://github.com/bigH/git-fuzzy.git
