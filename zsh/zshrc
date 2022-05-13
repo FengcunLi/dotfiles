@@ -206,8 +206,7 @@ fi
 
 export PATH=$PATH:$HOME/.cmds/
 
-mkdircd ()
-{
+mkdircd () {
     mkdir -p -- "$1" &&
       cd -P -- "$1"
 }
@@ -218,7 +217,7 @@ mkdircd ()
 alias vimf='vim $(fzf)'
 
 cd_with_fzf() {
-    cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview")"
+    cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}")"
     # cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" --bind="space:toggle-preview" --preview-window=:hidden)"
 }
 
@@ -236,3 +235,13 @@ export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git -E "cscope.*"'
 alias ag='ag --ignore "cscope.*" --ignore tags'
 alias gfst='git fuzzy status'
 alias gflog='git fuzzy log'
+
+d() {
+    if [[ -z $1 ]]; then
+         dirs -v -l
+    else
+        directories=($(dirs -l))
+        (( level = $1 + 1 ))
+        cd "${directories[$level]}"
+    fi
+}
