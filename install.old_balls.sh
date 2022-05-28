@@ -20,6 +20,7 @@ unlinkLink ${BASEDIR}/zsh/zshrc ~/.zshrc
 
 #bash
 unlinkLink ${BASEDIR}/bash/inputrc ~/.inputrc
+unlinkLink ${BASEDIR}/bash/git_aliases.sh ~/.git_aliases.sh
 if [[ -L ~/.bashrc ]]; then
   unlink ~/.bashrc
 fi

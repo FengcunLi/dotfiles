@@ -1,5 +1,6 @@
 [ -f ~/.bashrc_local_backup ] && source ~/.bashrc_local_backup
 [ -f ~/.fzf/fzf.bash ] && source ~/.fzf/fzf.bash
+[ -f ~/.git_aliases.sh ] && source ~/.git_aliases.sh
 
 # TL;DR
 # Bash has a similar functionality to zsh's bindkey through bind, but it does not have several vi modes like zsh. After set -o vi you can do:
