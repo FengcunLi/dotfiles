@@ -12,8 +12,8 @@ unlinkLink() {
     echo "---------------"
 }
 # vim
-unlinkLink ${BASEDIR}/vim/vimrc ~/.vimrc
-unlinkLink ${BASEDIR}/vim/vim/ ~/.vim
+unlinkLink ${BASEDIR}/vim/vimrc_bare ~/.vimrc
+unlinkLink ${BASEDIR}/vim/vim_bare/ ~/.vim
 
 # zsh
 unlinkLink ${BASEDIR}/zsh/zshrc ~/.zshrc

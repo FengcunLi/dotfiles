@@ -10,3 +10,5 @@ bind '"JH":vi-movement-mode'
 
 alias vimf='vim $(fzf)'
 export PATH=$PATH:$HOME/.cmds/
+
+alias sankuai='pwd="$(pwd)"; echo "$pwd"; sudo -iu sankuai'

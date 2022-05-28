@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 colorscheme ron
 set cursorline
 highlight CursorLineNR cterm=bold ctermfg=White ctermbg=21
@@ -37,4 +39,7 @@ else$
 endif$
 set list$
 hi NonText ctermfg=243 guifg=gray$
+
+au BufNewFile,BufRead *.cu set filetype=cuda
+au BufNewFile,BufRead *.cuh set filetype=cuda
 
