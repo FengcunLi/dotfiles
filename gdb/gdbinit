@@ -3997,3 +3997,4 @@ end
 #   Version 2
 #     Radix bugfix by elaine
 set auto-load safe-path /
+set startup-with-shell off

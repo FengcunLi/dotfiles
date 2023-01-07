@@ -229,7 +229,7 @@ bindkey -s '^o' 'cd_with_fzf\n'
 # export FZF_DEFAULT_COMMAND='fd --type f'
 # If you want the command to follow symbolic links and don't want it to exclude hidden files, use the following command:
 # export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git -E "cscope.*"'
+export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git --exclude build -E "cscope.*"'
 # export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 
 alias ag='ag --ignore "cscope.*" --ignore tags'
